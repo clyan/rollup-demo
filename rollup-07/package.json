@@ -1,0 +1,16 @@
+{
+  "name": "rollup-07",
+  "version": "1.0.0",
+  "description": "手写简易rollup",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "acorn": "^8.6.0",
+    "magic-string": "^0.25.7"
+  }
+}

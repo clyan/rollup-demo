@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>x5-video-player-type="h5-page"</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		#video {
+			position: absolute;
+			width: 100%;
+			z-index: -1;
+		}
+		.box {
+			height: 100vh;
+		}
+		.card {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+			z-index: 99;
+		}
+	</style>
+  </head>
+
+  <body>
+	<div class="box">
+
+	</div>
+	<div class="card">
+		<button id="btn">button</button>
+	</div>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+	<script src="./dist/js/tm.umd11.js"></script>
+	<script>
+		const h5Video = new TM.H5video('.box', {
+			src: './videos/q.mp4',
+			poster: './imgs/p1.jfif',
+			canCover: true,
+			// loop: true,
+		})
+
+		h5Video.onPreload()
+		.then((blobUrl) => {
+			h5Video.init(blobUrl).canPlay(() => {
+			// 隐藏页面h5Videoloading等其他操作
+
+			})
+		})
+		document.querySelector('#btn').addEventListener('click',function() {
+			alert(h5Video.play())
+			h5Video.play()
+		})
+	</script>
+  </body>
+</html>

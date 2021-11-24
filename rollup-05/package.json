@@ -1,0 +1,23 @@
+{
+  "name": "rollup-init",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -cw"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "html-minifier": "^4.0.0",
+    "node-html-parser": "^5.1.0"
+  },
+  "devDependencies": {
+    "rollup-plugin-bundle-html": "^0.2.2",
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-html2": "^3.1.0",
+    "rollup-plugin-serve": "^1.1.0"
+  }
+}

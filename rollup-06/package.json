@@ -1,0 +1,16 @@
+{
+  "name": "rollup-init",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "node ./script/build.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "rollup": "^2.60.0"
+  },
+  "devDependencies": {}
+}
