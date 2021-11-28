@@ -1,26 +1,26 @@
 const rollup = require('rollup');
-const example = require('./plugin/rollup-plugin-example')
+const pngResolver = require('./plugin/rollup-plugin-png-resolver.js');
 const path = require('path');
 
 const inputOptions = {
   input: path.resolve(__dirname, '../src/main.js'),
   plugins:[
-    example()
+    pngResolver(),
   ],
   perf: true,
 }
 const outputOptions = {
   file: 'bundle.js',
-  format: 'cjs'
+  format: 'umd'
 }
 
 async function build() {
   // 第一步
   const bundle = await rollup.rollup(inputOptions);
-  
+  // console.log("bundle", bundle)
   // 第二步
-  const { code, map } = await bundle.generate(outputOptions);
-  
+  const render = await bundle.generate(outputOptions);
+  // console.log("render", render)
   // 第三步
   await bundle.write(outputOptions);
 }

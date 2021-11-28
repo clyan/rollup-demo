@@ -1,0 +1,30 @@
+{
+  "name": "theme-chalk",
+  "version": "2.13.2",
+  "description": "component chalk theme.",
+  "main": "lib/index.css",
+  "style": "lib/index.css",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "scripts": {
+    "build": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "theme"
+  ],
+  "author": "ywymoshi",
+  "license": "MIT",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "devDependencies": {
+  },
+  "dependencies": {}
+}

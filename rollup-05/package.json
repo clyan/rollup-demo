@@ -15,9 +15,11 @@
     "node-html-parser": "^5.1.0"
   },
   "devDependencies": {
+    "rollup": "^2.60.1",
     "rollup-plugin-bundle-html": "^0.2.2",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-html2": "^3.1.0",
+    "rollup-plugin-livereload": "^2.0.5",
     "rollup-plugin-serve": "^1.1.0"
   }
 }

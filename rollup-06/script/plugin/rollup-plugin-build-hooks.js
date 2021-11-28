@@ -1,8 +1,8 @@
  const path = require('path');
  const fs = require('fs');
- function rollupPluginExample() {
+ function rollupPluginBuildHooks() {
     return {
-        name: 'example',
+        name: 'BuildHooks',
         options(inputOptions) {
             console.log("======================options======================")
             console.log(this.meta.rollupVersion) // 获取rollup版本信息
@@ -35,7 +35,7 @@
             // transform(content) 
             // generate()
             return {
-                code: '/*这是一段注释*/' + content.toString()
+                code: '/*这是一段注释*/' + content.toString()   
             }
         },
         transform(code, id) {
@@ -56,6 +56,6 @@
           }
       }
 }
-exports.rollupPluginExample = rollupPluginExample
+exports.rollupPluginBuildHooks = rollupPluginBuildHooks
 
-module.exports = rollupPluginExample
+module.exports = rollupPluginBuildHooks

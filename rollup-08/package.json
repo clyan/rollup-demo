@@ -1,0 +1,49 @@
+{
+  "name": "rollup-08",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build:lib && npm run  build:theme",
+    "build:lib": "rollup -c",
+    "build:theme": "node scripts/generateCssFile.js && gulp build --gulpfile packages/theme-chalk/gulpfile.js && cp-cli packages/theme-chalk/lib lib/theme-chalk",
+    "dev": "cross-env NODE_ENV=development rollup -wc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.12.1",
+    "@babel/plugin-proposal-optional-chaining": "^7.12.7",
+    "@babel/preset-env": "^7.12.10",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.0.6",
+    "@rollup/plugin-replace": "^3.0.0",
+    "@testing-library/jest-dom": "^5.15.1",
+    "@vue/babel-plugin-jsx": "^1.0.0-rc.4",
+    "@vue/compiler-sfc": "^3.0.7",
+    "cp-cli": "^2.0.0",
+    "cross-env": "^7.0.3",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-sass": "^4.1.0",
+    "rollup": "^2.60.1",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-scss": "^3.0.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.31.1",
+    "rollup-plugin-vue": "^6.0.0",
+    "typescript": "^4.1.2",
+    "vue": "^3.0.7"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.7"
+  },
+  "dependencies": {
+    "throttle-debounce": "^3.0.1"
+  }
+}

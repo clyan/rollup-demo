@@ -57,69 +57,24 @@ function copy(options = {}) {
   } = options;
   let copied = false;
   // 用于返回最终的构建路径
-  let apiTargets = []
   return {
     name: 'copy',
-    apiTargets,
-    [hook]: async () => {
+    resolveId(options){
+  
+      console.log("this", this)
+      this.meta.apiTargets = [...copyTargets]
+    },
+    buildEnd(name) {
+      
       if (copyOnce && copied) {
         return;
       }
-      const copyTargets = [];
-
-      if (Array.isArray(targets) && targets.length) {
-        for (const target of targets) {
-          if (!isObject(target)) {
-            throw new Error(`${stringify(target)} target must be an object`);
-          }
-
-          const {
-            dest,
-            rename,
-            src,
-            transform,
-            ...restTargetOptions
-          } = target;
-
-          if (!src || !dest) {
-            throw new Error(`${stringify(target)} target must have "src" and "dest" properties`);
-          }
-
-          if (rename && typeof rename !== 'string' && typeof rename !== 'function') {
-            throw new Error(`${stringify(target)} target's "rename" property must be a string or a function`);
-          }
-
-          const matchedPaths = await globby(src, {
-            expandDirectories: false,
-            onlyFiles: false,
-            ...restPluginOptions,
-            ...restTargetOptions
-          });
-
-          if (matchedPaths.length) {
-            for (const matchedPath of matchedPaths) {
-              const generatedCopyTargets = Array.isArray(dest) ? await Promise.all(dest.map(destination => generateCopyTarget(matchedPath, destination, {
-                flatten,
-                rename,
-                transform
-              }))) : [await generateCopyTarget(matchedPath, dest, {
-                flatten,
-                rename,
-                transform
-              })];
-              copyTargets.push(...generatedCopyTargets);
-            }
-          }
-        }
-      }
-      apiTargets = [...copyTargets]
-      console.log("apiTargets", apiTargets)
-      if (copyTargets.length) {
+      if (this.meta.apiTargets.length) {
         if (verbose) {
           console.log(green('copied:'));
         }
 
-        for (const copyTarget of copyTargets) {
+        for (const copyTarget of this.meta.apiTargets) {
           const {
             contents,
             dest,

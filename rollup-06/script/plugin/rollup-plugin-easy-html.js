@@ -142,7 +142,7 @@ must be one of \`boolean\`, \`undefined\`; received ${JSON.stringify(others.nomo
           // or handle this silently if it is optional
           throw new Error(`This plugin depends on the "${parentName}" plugin.`);
         }
-        console.log("parentPlugin.apiTargets", parentPlugin);
+        console.log("parentPlugin.apiTargets", this);
         
 
         const { before = [], after = [], } = externals || {};
